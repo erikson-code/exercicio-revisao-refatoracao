@@ -4,25 +4,42 @@
 #include <iostream>
 #include <string>
 
+#define HORASDIARIAS 8
+#define PORCENTAGEMHORAEXTRA 0.5
+
 class Empregado {
-	
-  public:
-    double salarioHora;  
-    double quotaMensalVendas;  
+      
+  private:
+  std::string nome; 
+  double quotaMensalVendas;  
+  double salarioHora; 
 
+  //functions
 
-    double pagamentoMes(double horasTrabalhadas) {
- 
-      double t = horasTrabalhadas;
-	  
-	  //Cálculo de hora extra (+50% se horasTrabalhadas > 8)
-      if (horasTrabalhadas > 8) {
-        double x = horasTrabalhadas - 8;
-        t += x / 2;
-      }
-	  return t * salarioHora;
-    }
-	
-};
+   double horasExtras(double horasTrabalhadas);
+   double salarioExtra(double x);
+   double salarioTotal(double t,double salarioHora);
 
+   public:
+        
+   //getters
+
+   std::string getNome();
+
+   double getSalarioHora();
+
+  double getQuotaMensalVendas();
+
+   //setters
+
+   void setQuotaMensalVendas(double quotaMensalVendas);
+   void setNome(std::string nome);
+   void setSalarioHora(double salarioHora);
+
+        //functions
+
+   double pagamentoMes(double horasTrabalhadas);
+        
+    };
+    
 #endif
